@@ -3,6 +3,8 @@ package com.garnerju.BasicWebsite.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 public class WebsiteControllers {
 
@@ -13,12 +15,12 @@ public class WebsiteControllers {
     }
 
     @GetMapping("/main")
-    public String userPage() {
+    public String userPage(Principal principal) {
         return "Welcome to the private user area of the site!";
     }
 
     @GetMapping("/admin")
-    public String adminPage() {
+    public String adminPage(Principal principal) {
         return "Welcome to the admin panel";
     }
 
