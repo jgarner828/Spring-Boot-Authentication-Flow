@@ -1,12 +1,20 @@
 package com.garnerju.BasicWebsite.controllers;
 
+import com.garnerju.BasicWebsite.models.User;
+import com.garnerju.BasicWebsite.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
 @RestController
 public class WebsiteControllers {
+
+    @Autowired
+    UserService userService;
 
 
     @GetMapping("/")
@@ -24,4 +32,6 @@ public class WebsiteControllers {
         return "Welcome to the admin panel";
     }
 
+    @PostMapping("/user")
+    public User createUser(@RequestBody User newUser) {  return userService.createUser(newUser); }
 }

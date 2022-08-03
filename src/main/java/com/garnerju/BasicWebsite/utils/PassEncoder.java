@@ -1,18 +1,17 @@
 package com.garnerju.BasicWebsite.utils;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
-public class PasswordUtil {
+@Component
+public class PassEncoder {
 
-    public static void main(String[] args) {
 
+    public String encodeUserPassword(String input) {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
-
-        String password = "password";
-
-        String encodedPassword = encoder.encode(password);
-
-        System.out.println(encodedPassword);
+        return encoder.encode(input);
     }
 }
+
